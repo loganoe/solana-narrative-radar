@@ -1,0 +1,19 @@
+{
+  "name": "solana-narrative-radar",
+  "version": "0.1.0",
+  "description": "A fortnightly Solana ecosystem narrative detector and build-idea generator.",
+  "type": "module",
+  "private": false,
+  "scripts": {
+    "refresh": "node scripts/refresh.js",
+    "check": "node scripts/check-snapshot.js",
+    "serve": "python3 -m http.server 4173"
+  },
+  "keywords": [
+    "solana",
+    "jupiter",
+    "narratives",
+    "dashboard"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>Solana Narrative Radar</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Solana ecosystem signals</p>
+        <h1>Solana Narrative Radar</h1>
+      </div>
+      <div class="header-actions" aria-label="Dashboard controls">
+        <button class="icon-button" id="refreshButton" type="button" title="Refresh from bundled snapshot">
+          <span aria-hidden="true">↻</span>
+          <span class="sr-only">Refresh</span>
+        </button>
+        <a class="text-button" href="https://github.com/loganoe/solana-narrative-radar" rel="noreferrer">Repository</a>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="overview" aria-label="Snapshot summary">
+        <div class="metric">
+          <span class="metric-label">Last refresh</span>
+          <strong id="lastRefresh">Loading</strong>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Narratives</span>
+          <strong id="narrativeCount">0</strong>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Token signals</span>
+          <strong id="tokenCount">0</strong>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Repo signals</span>
+          <strong id="repoCount">0</strong>
+        </div>
+      </section>
+
+      <nav class="tabs" aria-label="Views">
+        <button class="tab is-active" data-tab="narratives" type="button">Narratives</button>
+        <button class="tab" data-tab="ideas" type="button">Build Ideas</button>
+        <button class="tab" data-tab="signals" type="button">Signals</button>
+        <button class="tab" data-tab="method" type="button">Method</button>
+      </nav>
+
+      <section class="panel is-active" id="narratives" aria-labelledby="narratives-tab">
+        <div class="section-heading">
+          <h2>Detected Narratives</h2>
+          <p id="snapshotStatus">Loading bundled signal snapshot.</p>
+        </div>
+        <div class="narrative-grid" id="narrativeGrid"></div>
+      </section>
+
+      <section class="panel" id="ideas" aria-labelledby="ideas-tab">
+        <div class="section-heading">
+          <h2>Build Ideas</h2>
+          <p>Ranked from the strongest detected evidence.</p>
+        </div>
+        <div class="idea-list" id="ideaList"></div>
+      </section>
+
+      <section class="panel" id="signals" aria-labelledby="signals-tab">
+        <div class="section-heading">
+          <h2>Signal Feed</h2>
+          <p>Jupiter token activity and recent GitHub development signals.</p>
+        </div>
+        <div class="signals-layout">
+          <div>
+            <h3>Token Signals</h3>
+            <div class="signal-table" id="tokenTable"></div>
+          </div>
+          <div>
+            <h3>Repository Signals</h3>
+            <div class="signal-table" id="repoTable"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="method" aria-labelledby="method-tab">
+        <div class="section-heading">
+          <h2>Method</h2>
+          <p>Transparent scoring for a lightweight fortnightly refresh.</p>
+        </div>
+        <div class="method-grid" id="methodGrid"></div>
+      </section>
+    </main>
+
+    <template id="narrativeTemplate">
+      <article class="narrative-card">
+        <div class="card-topline">
+          <span class="badge"></span>
+          <span class="score"></span>
+        </div>
+        <h3></h3>
+        <p class="summary"></p>
+        <div class="evidence"></div>
+      </article>
+    </template>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
